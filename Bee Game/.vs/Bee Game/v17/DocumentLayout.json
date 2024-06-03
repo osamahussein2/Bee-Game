@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|c:\\users\\osama\\downloads\\beegame\\bee-game\\bee game\\assets\\scripts\\howtoplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\howtoplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\assets\\scripts\\creditsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\creditsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\assets\\scripts\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|c:\\users\\osama\\downloads\\beegame\\bee-game\\bee game\\assets\\scripts\\creditsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{624BBE9B-4258-D176-299E-D1CDF9A2DE28}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\creditsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +26,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "HowToPlay.cs",
+              "DocumentMoniker": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\HowToPlay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HowToPlay.cs",
+              "ToolTip": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\HowToPlay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HowToPlay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T14:21:17.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CreditsMenu.cs",
               "DocumentMoniker": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\CreditsMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CreditsMenu.cs",
               "ToolTip": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\CreditsMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\CreditsMenu.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAIBMwB8AAAAzAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAABwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T13:41:46.809Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu.cs",
@@ -47,12 +64,11 @@
               "RelativeToolTip": "Assets\\Scripts\\MainMenu.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAABIAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T15:56:33.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T15:56:33.499Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "OptionsMenu.cs",
               "DocumentMoniker": "C:\\Users\\osama\\Downloads\\BEEgame\\Bee-Game\\Bee Game\\Assets\\Scripts\\OptionsMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\OptionsMenu.cs",
@@ -60,8 +76,7 @@
               "RelativeToolTip": "Assets\\Scripts\\OptionsMenu.cs",
               "ViewState": "AQIAAFoAAAAAAAAAAAAAAGsAAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T15:44:44.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T15:44:44.316Z"
             }
           ]
         }
