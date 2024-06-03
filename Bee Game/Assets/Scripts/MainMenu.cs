@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Make full screen mode false because this is to test the resolution matching with NES' screen resolution
-    bool fullScreenMode = false;
+    public static bool fullScreenMode = false;
 
     // Initialize the screen width and height to be equal to NES' screen resolution
-    int screenWidth = 256;
-    int screenHeight = 240;
+    public static int screenWidth = 256;
+    public static int screenHeight = 240;
 
     // Start is called before the first frame update
     void Start()

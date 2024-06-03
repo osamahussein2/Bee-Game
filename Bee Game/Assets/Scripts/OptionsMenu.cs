@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    // Make full screen mode false because this is to test the resolution matching with NES' screen resolution
-    bool fullScreenMode = false;
-
-    // Initialize the screen width and height to be equal to NES' screen resolution
-    int screenWidth = 256;
-    int screenHeight = 240;
-
     // Create a public reference to any sfx and music audio files we have inside the game for the player to modify its volume
     public AudioSource[] sfxSource;
     public AudioSource[] musicSource;
@@ -36,13 +29,35 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         // Set the resolution to the screen width and screen height
-        Screen.SetResolution(screenWidth, screenHeight, fullScreenMode);
+        Screen.SetResolution(MainMenu.screenWidth, MainMenu.screenHeight, MainMenu.fullScreenMode);
 
-        noSFXimage.gameObject.SetActive(false); // Turn off the no SFX image by default
-        sfxImage.gameObject.SetActive(true); // Turn on SFX at start
+        // Save the SFX image at start if the player chooses to turn SFX on
+        if (PlayerPrefs.GetString("sfxImage") == "SFX On")
+        {
+            sfxImage.gameObject.SetActive(true); // Turn on SFX using the SFX image
+            noSFXimage.gameObject.SetActive(false); // Disable the no SFX image
+        }
 
-        noMusicImage.gameObject.SetActive(false); // Turn off the no music image by default
-        musicImage.gameObject.SetActive(true); // Turn on music at start
+        // Save the no SFX image at start if the player chooses to turn SFX off
+        if (PlayerPrefs.GetString("sfxImage") == "SFX Off")
+        {
+            noSFXimage.gameObject.SetActive(true); // Turn off SFX using the no SFX image
+            sfxImage.gameObject.SetActive(false); // Disable the SFX image
+        }
+
+        // Save the music image at start if the player chooses to turn music on
+        if (PlayerPrefs.GetString("MusicImage") == "Music On")
+        {
+            musicImage.gameObject.SetActive(true); // Turn on music using the music image
+            noMusicImage.gameObject.SetActive(false); // Disable the no music image
+        }
+
+        // Save the no music image at start if the player chooses to turn music off
+        if (PlayerPrefs.GetString("MusicImage") == "Music Off")
+        {
+            noMusicImage.gameObject.SetActive(true); // Turn off music using the no music image
+            musicImage.gameObject.SetActive(false); // Disable the music image
+        }
     }
 
     // Update is called once per frame
@@ -89,6 +104,9 @@ public class OptionsMenu : MonoBehaviour
                 timerValue = 0; // Reset this to 0 to keep updating the sfx index
             }
         }
+
+        // Set the string to save the player's option when they want to turn on SFX
+        PlayerPrefs.SetString("sfxImage", "SFX On");
     }
 
     public void TurnOffSFX()
@@ -105,6 +123,9 @@ public class OptionsMenu : MonoBehaviour
             sfxSource[1].volume = 0; // Set all SFX volume to 0
             sfxSource[i].Stop(); // Stop all SFXs from playing
         }
+
+        // Set the string to save the player's option when they want to turn off SFX
+        PlayerPrefs.SetString("sfxImage", "SFX Off");
     }
 
     public void TurnOnMusic()
@@ -142,6 +163,9 @@ public class OptionsMenu : MonoBehaviour
                 timerValue = 0; // Reset this to 0 to keep updating the sfx index
             }
         }
+
+        // Set the string to save the player's option when they want to turn on music
+        PlayerPrefs.SetString("MusicImage", "Music On");
     }
 
     public void TurnOffMusic()
@@ -158,5 +182,8 @@ public class OptionsMenu : MonoBehaviour
             musicSource[i].volume = 0; // Set all music volume to 0
             musicSource[i].Stop(); // Stop all SFXs from playing
         }
+
+        // Set the string to save the player's option when they want to turn off music
+        PlayerPrefs.SetString("MusicImage", "Music Off");
     }
 }
