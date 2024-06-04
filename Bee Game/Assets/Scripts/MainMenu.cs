@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
         }
 
         // Acts as the SELECT button for Nintendo Entertainment System controller
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             // Tell the player how to play
             SceneManager.LoadScene("How to Play");
