@@ -21,8 +21,11 @@ public class CreditsMenu : MonoBehaviour
     // Create a public reference to the credits font that will be used
     public Font creditsFont;
 
+    // Create a public reference to the back text that will be used inside the inspector
+    public Text backText;
+
     // Create a public reference to make the back button active or not active when the credits are rolling
-    public GameObject backButton;
+    public GameObject activeBackText;
 
     void Start()
     {
@@ -32,18 +35,34 @@ public class CreditsMenu : MonoBehaviour
         moveLeft = new Vector3(-0.01f, 0.0f, 0.0f); // This will be used to animate the left curtain to move left
         moveRight = new Vector3(0.01f, 0.0f, 0.0f); // This will be used to animate the right curtain to move right
 
-        // Because the curtains are opening and the player needs to wait until the back button is visible
-        backButton.SetActive(false);
+        // Because the curtains are opening and the player needs to wait until the back text is visible
+        activeBackText.SetActive(false);
     }
 
     void Update()
     {
+        // Tell the player to press START to press the back button
+        backText.text = "Press START to back to the main menu";
+
+        backText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        backText.fontSize = 7; // Make the text smaller to fit the NES resolution
+        backText.color = Color.white; // Make the text white
+        backText.alignment = TextAnchor.MiddleCenter; // Align it at the middle center of the text box
+
+        // If the player presses the ENTER key (acts as a START button for NES controller) and the text has activated
+        if (activeBackText.activeInHierarchy && Input.GetKeyDown(KeyCode.Return))
+        {
+            // Go back to the main menu only if the curtains have opened where the back button text is fully visible
+            SceneManager.LoadScene("Main Menu");
+        }
+
         // Set up the credits list to give credit to our team doing specific roles in making this game
         creditsListText.text = "Programmer\r\n\r\n\r\nArt design\r\n\r\n" +
             "Sound composer\r\n\r\nProducer";
 
         creditsListText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
         creditsListText.fontSize = 10; // Make the text smaller to fit the NES resolution
+        creditsListText.color = Color.white; // Make the text white
         creditsListText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
 
         // Set up the credits name to give credit to our team members making this game
@@ -52,23 +71,24 @@ public class CreditsMenu : MonoBehaviour
 
         creditsNameText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
         creditsNameText.fontSize = 10; // Make the text smaller to fit the NES resolution
+        creditsNameText.color = Color.white; // Make the text white
         creditsNameText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
 
         // Animate both the left and right curtains to open
         leftCurtainImage.gameObject.transform.position += moveLeft;
         rightCurtainImage.gameObject.transform.position += moveRight;
 
-        // Wait for the curtains to move before the back button will be visible for the player to press
-        if (leftCurtainImage.transform.position.x <= 0.0f && leftCurtainImage.transform.position.x >= -50.0f &&
-            rightCurtainImage.transform.position.x >= 0.0f && rightCurtainImage.transform.position.x <= 50.0f)
+        // Wait for the curtains to move before the back button text will be visible to the player
+        if (leftCurtainImage.transform.position.x <= 0.0f && leftCurtainImage.transform.position.x >= -130.0f &&
+            rightCurtainImage.transform.position.x >= 0.0f && rightCurtainImage.transform.position.x <= 130.0f)
         {
-            backButton.SetActive(false);
+            activeBackText.SetActive(false);
         }
 
-        // Make the back button available for the player to press after the curtain is halfway opened
-        else if (leftCurtainImage.transform.position.x < -60.0f && rightCurtainImage.transform.position.x > 60.0f)
+        // Make the back button text available for the player to press after the curtain is halfway opened
+        else if (leftCurtainImage.transform.position.x < -130.0f && rightCurtainImage.transform.position.x > 130.0f)
         {
-            backButton.SetActive(true);
+            activeBackText.SetActive(true);
         }
 
         // If the left curtain is fully opened, disable it and stop moving to place it there
@@ -84,11 +104,5 @@ public class CreditsMenu : MonoBehaviour
             rightCurtainImage.transform.position = new Vector2(406.0f, 0.0f);
             rightCurtainImage.enabled = false;
         }
-    }
-
-    public void PressBackButton()
-    {
-        // Go back to the main menu only if the curtains have opened where the back button is fully visible
-        SceneManager.LoadScene("Main Menu");
     }
 }
