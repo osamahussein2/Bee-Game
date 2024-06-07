@@ -47,7 +47,9 @@ public class CreditsMenu : MonoBehaviour
         creditsTitleText.text = "Bee Factory Credits"; // Set up the credits title
         creditsTitleText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
         creditsTitleText.fontSize = 10; // Make this smaller to fit the NES resolution but bigger than the other texts
-        creditsTitleText.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // Make the text yellow
+
+        // Make the text yellow
+        creditsTitleText.color = new Color(0.93333333333f, 0.86666666666f, 0.53333333333f, 0.93f);
         creditsTitleText.alignment = TextAnchor.MiddleCenter; // Align it at the middle center of the text box
 
         // Tell the player to press START to press the back button
