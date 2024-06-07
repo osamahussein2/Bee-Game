@@ -14,9 +14,12 @@ public class CreditsMenu : MonoBehaviour
     // Create 2 Vector3s to animate the curtain movement
     Vector3 moveLeft, moveRight;
 
+    // Create a public reference to the credits title text
+    public Text creditsTitleText;
+
     // Create a public reference to the credits list and names texts
-    public Text creditsListText;
-    public Text creditsNameText;
+    public Text programmerText, artDesignText, soundComposerText, producerText;
+    public Text programmerNamesText, artDesignNameText, soundComposerNameText, producerNamesText;
 
     // Create a public reference to the credits font that will be used
     public Font creditsFont;
@@ -41,6 +44,12 @@ public class CreditsMenu : MonoBehaviour
 
     void Update()
     {
+        creditsTitleText.text = "Bee Factory Credits"; // Set up the credits title
+        creditsTitleText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        creditsTitleText.fontSize = 10; // Make this smaller to fit the NES resolution but bigger than the other texts
+        creditsTitleText.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // Make the text yellow
+        creditsTitleText.alignment = TextAnchor.MiddleCenter; // Align it at the middle center of the text box
+
         // Tell the player to press START to press the back button
         backText.text = "Press START to back to the main menu";
 
@@ -56,23 +65,77 @@ public class CreditsMenu : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
         }
 
-        // Set up the credits list to give credit to our team doing specific roles in making this game
-        creditsListText.text = "Programmer\r\n\r\n\r\nArt design\r\n\r\n" +
-            "Sound composer\r\n\r\nProducer";
+        // Set up the programmer text
+        programmerText.text = "Programmer";
 
-        creditsListText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
-        creditsListText.fontSize = 10; // Make the text smaller to fit the NES resolution
-        creditsListText.color = Color.white; // Make the text white
-        creditsListText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
+        programmerText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        programmerText.fontSize = 9; // Make the text smaller to fit the NES resolution
+        programmerText.color = new Color(0.26666666666f, 0.53333333333f, 1.0f, 1.0f); // Make the text blue
+        programmerText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
 
-        // Set up the credits name to give credit to our team members making this game
-        creditsNameText.text = "Osama Hussein\r\ntheRoyalJelly\r\n\r\nDirectingZeus\r\n\r\n" +
-            "Preston\r\n\r\n\nPreston\r\nDirectingZeus";
+        // Set up the programmer names to give credit to our programming team making this game
+        programmerNamesText.text = "Osama Hussein\ntheRoyalJelly";
 
-        creditsNameText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
-        creditsNameText.fontSize = 10; // Make the text smaller to fit the NES resolution
-        creditsNameText.color = Color.white; // Make the text white
-        creditsNameText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
+        programmerNamesText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        programmerNamesText.fontSize = 9; // Make the text smaller to fit the NES resolution
+        programmerNamesText.color = new Color(0.26666666666f, 0.53333333333f, 1.0f, 1.0f); // Make the text blue
+        programmerNamesText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
+
+        // Set up the art design text
+        artDesignText.text = "Art design";
+
+        artDesignText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        artDesignText.fontSize = 9; // Make the text smaller to fit the NES resolution
+        artDesignText.color = new Color(0.13333333333f, 0.73333333333f, 0.8f, 0.8f); // Make the text cyan
+        artDesignText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
+
+        // Set up the art design name to give credit to our artist in making this game
+        artDesignNameText.text = "DirectingZeus";
+
+        artDesignNameText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        artDesignNameText.fontSize = 9; // Make the text smaller to fit the NES resolution
+        artDesignNameText.color = new Color(0.13333333333f, 0.73333333333f, 0.8f, 0.8f); // Make the text cyan
+        artDesignNameText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
+
+        // Set up the sound composer text
+        soundComposerText.text = "Sound composer";
+
+        soundComposerText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        soundComposerText.fontSize = 9; // Make the text smaller to fit the NES resolution
+
+        // Make the text green
+        soundComposerText.color = new Color(0.13333333333f, 0.73333333333f, 0.13333333333f, 0.73f);
+        soundComposerText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
+
+        // Set up the sound composer name to give credit to our sound composer in making this game
+        soundComposerNameText.text = "Preston";
+
+        soundComposerNameText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        soundComposerNameText.fontSize = 9; // Make the text smaller to fit the NES resolution
+
+        // Make the text green
+        soundComposerNameText.color = new Color(0.13333333333f, 0.73333333333f, 0.13333333333f, 0.73f);
+        soundComposerNameText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
+
+        // Set up the producer text
+        producerText.text = "Producer";
+
+        producerText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        producerText.fontSize = 9; // Make the text smaller to fit the NES resolution
+
+        // Make the text green-cyan
+        producerText.color = new Color(0.13333333333f, 0.73333333333f, 0.46666666666f, 0.73f);
+        producerText.alignment = TextAnchor.UpperRight; // Align it in the upper right of the text box
+
+        // Set up the producer name to give credit to our producers in making this game
+        producerNamesText.text = "Preston\nDirectingZeus";
+
+        producerNamesText.font = creditsFont; // Set this text to use the Nintendo font in the inspector
+        producerNamesText.fontSize = 9; // Make the text smaller to fit the NES resolution
+
+        // Make the text green-cyan
+        producerNamesText.color = new Color(0.13333333333f, 0.73333333333f, 0.46666666666f, 0.73f);
+        producerNamesText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
 
         // Animate both the left and right curtains to open
         leftCurtainImage.gameObject.transform.position += moveLeft;
