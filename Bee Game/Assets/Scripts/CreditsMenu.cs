@@ -35,9 +35,6 @@ public class CreditsMenu : MonoBehaviour
         // Set the resolution to the screen width and screen height
         Screen.SetResolution(MainMenu.screenWidth, MainMenu.screenHeight, MainMenu.fullScreenMode);
 
-        moveLeft = new Vector3(-0.01f, 0.0f, 0.0f); // This will be used to animate the left curtain to move left
-        moveRight = new Vector3(0.01f, 0.0f, 0.0f); // This will be used to animate the right curtain to move right
-
         // Because the curtains are opening and the player needs to wait until the back text is visible
         activeBackText.SetActive(false);
     }
@@ -139,19 +136,25 @@ public class CreditsMenu : MonoBehaviour
         producerNamesText.color = new Color(0.13333333333f, 0.73333333333f, 0.46666666666f, 0.73f);
         producerNamesText.alignment = TextAnchor.UpperLeft; // Align it in the upper left of the text box
 
+        // This will be used to animate the left curtain to move left at randomized speed
+        moveLeft = new Vector3(Random.Range(-0.2f, -0.15f), 0.0f, 0.0f);
+
+        // This will be used to animate the right curtain to move right at randomized speed
+        moveRight = new Vector3(Random.Range(0.15f, 0.2f), 0.0f, 0.0f);
+
         // Animate both the left and right curtains to open
         leftCurtainImage.gameObject.transform.position += moveLeft;
         rightCurtainImage.gameObject.transform.position += moveRight;
 
         // Wait for the curtains to move before the back button text will be visible to the player
-        if (leftCurtainImage.transform.position.x <= 0.0f && leftCurtainImage.transform.position.x >= -130.0f &&
-            rightCurtainImage.transform.position.x >= 0.0f && rightCurtainImage.transform.position.x <= 130.0f)
+        if (leftCurtainImage.transform.position.x <= 0.0f && leftCurtainImage.transform.position.x >= -140.0f &&
+            rightCurtainImage.transform.position.x >= 0.0f && rightCurtainImage.transform.position.x <= 140.0f)
         {
             activeBackText.SetActive(false);
         }
 
         // Make the back button text available for the player to press after the curtain is halfway opened
-        else if (leftCurtainImage.transform.position.x < -130.0f && rightCurtainImage.transform.position.x > 130.0f)
+        else if (leftCurtainImage.transform.position.x < -140.0f && rightCurtainImage.transform.position.x > 140.0f)
         {
             activeBackText.SetActive(true);
         }
