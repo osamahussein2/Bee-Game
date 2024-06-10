@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backText: {fileID: 125312956}
-  howToPlayFont: {fileID: 12800000, guid: 0902e564ccf882e44bdea7f5fd941c64, type: 3}
+  howToPlayFont: {fileID: 12800000, guid: 313982fa3f8f91a44bb60c3f5e3e5f64, type: 3}
   dPadHelpText: {fileID: 1460864389}
   startButtonHelpText: {fileID: 1791222294}
   selectButtonHelpText: {fileID: 518938601}
@@ -837,7 +837,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0902e564ccf882e44bdea7f5fd941c64, type: 3}
+    m_Font: {fileID: 12800000, guid: 313982fa3f8f91a44bb60c3f5e3e5f64, type: 3}
     m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0

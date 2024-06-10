@@ -563,7 +563,7 @@ MonoBehaviour:
   artDesignNameText: {fileID: 1652132089}
   soundComposerNameText: {fileID: 1668599111}
   producerNamesText: {fileID: 784726008}
-  creditsFont: {fileID: 12800000, guid: 0902e564ccf882e44bdea7f5fd941c64, type: 3}
+  creditsFont: {fileID: 12800000, guid: 313982fa3f8f91a44bb60c3f5e3e5f64, type: 3}
   backText: {fileID: 309176828}
   activeBackText: {fileID: 309176826}
 --- !u!4 &524097305
