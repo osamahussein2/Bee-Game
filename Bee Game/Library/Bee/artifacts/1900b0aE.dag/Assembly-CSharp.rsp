@@ -375,7 +375,10 @@
 "Assets/Scripts/CreditsMenu.cs"
 "Assets/Scripts/HowToPlay.cs"
 "Assets/Scripts/MainMenu.cs"
+"Assets/Scripts/MenuInputs.cs"
 "Assets/Scripts/OptionsMenu.cs"
+"Assets/Scripts/placementHandler.cs"
+"Assets/Scripts/Player_Movement_Controller.cs"
 -langversion:9.0
 /deterministic
 /optimize+
