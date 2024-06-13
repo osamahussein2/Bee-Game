@@ -11,6 +11,9 @@ public class OptionsMenu : MonoBehaviour
     public AudioSource[] sfxSource;
     public AudioSource[] musicSource;
 
+    // Create a static reference of the default bee music to use it outside of this script
+    public static AudioSource defaultBeeMusic;
+
     int sfxIndex; // This will randomize a certain SFX to play
     int musicIndex; // This will randomize a certain music to play
 
@@ -30,6 +33,13 @@ public class OptionsMenu : MonoBehaviour
 
     // Create a public font to use inside the inspector
     public Font optionsFont;
+
+    // Create a public static music image string to use it inside the Main Menu script
+    public static string musicImageString = "MusicImage";
+
+    // Create a public static music on and music off strings to use it inside the Main Menu script
+    public static string musicOn = "Music On";
+    public static string musicOff = "Music Off";
 
     // Start is called before the first frame update
     void Start()
@@ -52,17 +62,31 @@ public class OptionsMenu : MonoBehaviour
         }
 
         // Save the music image at start if the player chooses to turn music on
-        if (PlayerPrefs.GetString("MusicImage") == "Music On")
+        if (PlayerPrefs.GetString(musicImageString) == musicOn)
         {
             musicImage.gameObject.SetActive(true); // Turn on music using the music image
             noMusicImage.gameObject.SetActive(false); // Disable the no music image
+
+            // If the default bee music is not null
+            if (defaultBeeMusic != null)
+            {
+                defaultBeeMusic.volume = 1; // Set the default bee music volume to 1
+                defaultBeeMusic.loop = true; // Set the default bee music to continue looping
+            }
         }
 
         // Save the no music image at start if the player chooses to turn music off
-        if (PlayerPrefs.GetString("MusicImage") == "Music Off")
+        if (PlayerPrefs.GetString(musicImageString) == musicOff)
         {
             noMusicImage.gameObject.SetActive(true); // Turn off music using the no music image
             musicImage.gameObject.SetActive(false); // Disable the music image
+
+            // If the default bee music is not null
+            if (defaultBeeMusic != null)
+            {
+                defaultBeeMusic.Stop(); // Stop playing the default bee music if the player turned off music
+                defaultBeeMusic.volume = 0; // Set the default bee music volume to 0
+            }
         }
     }
 
@@ -71,7 +95,7 @@ public class OptionsMenu : MonoBehaviour
     {
         // Set the SFX and music indexes to randomize between its first index and 1 more than the length of the array
         sfxIndex = Random.Range(0, sfxSource.Length + 1);
-        musicIndex = Random.Range(0, musicSource.Length + 1);
+        musicIndex = Random.Range(0, musicSource.Length + 2);
 
         // Increase the timer value over time
         timerValue += Time.deltaTime;
@@ -127,10 +151,18 @@ public class OptionsMenu : MonoBehaviour
 
                     timerValue = 0; // Reset this to 0 to keep updating the sfx index
                 }
+
+                if (musicIndex == 3)
+                {
+                    defaultBeeMusic.volume = 1; // Set this music volume to 1 if it reaches this music index
+                    defaultBeeMusic.Play(); // Play this music when the player turns on music
+
+                    timerValue = 0; // Reset this to 0 to keep updating the sfx index
+                }
             }
 
             // Set the string to save the player's option when they want to turn on music
-            PlayerPrefs.SetString("MusicImage", "Music On");
+            PlayerPrefs.SetString(musicImageString, musicOn);
         }
 
         // If no music image is not visible but music image is visible and the player pressed Z (acts as a A button for NES)
@@ -148,10 +180,13 @@ public class OptionsMenu : MonoBehaviour
             {
                 musicSource[i].volume = 0; // Set all music volume to 0
                 musicSource[i].Stop(); // Stop all SFXs from playing
+
+                defaultBeeMusic.volume = 0; // Set the default bee music volume to 0
+                defaultBeeMusic.Stop(); // Stop playing the default bee music if the player turned off music
             }
 
             // Set the string to save the player's option when they want to turn off music
-            PlayerPrefs.SetString("MusicImage", "Music Off");
+            PlayerPrefs.SetString(musicImageString, musicOff);
         }
 
         // If sfx image is not visible but no sfx image is visible and the player pressed X (acts as a B button for NES)

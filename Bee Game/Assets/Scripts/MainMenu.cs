@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,6 +27,34 @@ public class MainMenu : MonoBehaviour
     {
         // Set the resolution to the screen width and screen height
         Screen.SetResolution(screenWidth, screenHeight, fullScreenMode);
+
+        // Right away, find the default bee music audio source game object
+        OptionsMenu.defaultBeeMusic = GameObject.Find("Default Music").GetComponent<AudioSource>();
+
+        // Don't destroy the default bee music if another scene is loaded
+        DontDestroyOnLoad(OptionsMenu.defaultBeeMusic);
+
+        // If the default bee music is founded but not playing and the player turned on music in the options menu
+        if (OptionsMenu.defaultBeeMusic != null && !OptionsMenu.defaultBeeMusic.isPlaying &&
+            PlayerPrefs.GetString(OptionsMenu.musicImageString) == OptionsMenu.musicOn)
+        {
+            OptionsMenu.defaultBeeMusic.Play(); // Play the default bee music
+        }
+
+        // If the default bee music is playing, set the volume to 1 and enable loop
+        if(OptionsMenu.defaultBeeMusic.isPlaying)
+        {
+            OptionsMenu.defaultBeeMusic.volume = 1;
+            OptionsMenu.defaultBeeMusic.loop = true;
+        }
+
+        // If the default bee music is found but the player turned off music in the options menu
+        if (OptionsMenu.defaultBeeMusic != null &&
+            PlayerPrefs.GetString(OptionsMenu.musicImageString) == OptionsMenu.musicOff)
+        {
+            OptionsMenu.defaultBeeMusic.Stop(); // Stop playing the default bee music
+            OptionsMenu.defaultBeeMusic.volume = 0; // Set the volume to 0, just in case
+        }
     }
 
     void Update()
