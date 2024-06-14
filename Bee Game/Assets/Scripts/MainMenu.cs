@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
         // Don't destroy the default bee music if another scene is loaded
         DontDestroyOnLoad(OptionsMenu.defaultBeeMusic);
 
-        // If the default bee music is founded but not playing and the player turned on music in the options menu
+        // If the default bee music is found but not playing and the player turned on music in the options menu
         if (OptionsMenu.defaultBeeMusic != null && !OptionsMenu.defaultBeeMusic.isPlaying &&
             PlayerPrefs.GetString(OptionsMenu.musicImageString) == OptionsMenu.musicOn)
         {

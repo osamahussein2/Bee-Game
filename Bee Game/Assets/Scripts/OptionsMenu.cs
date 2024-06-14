@@ -14,6 +14,9 @@ public class OptionsMenu : MonoBehaviour
     // Create a static reference of the default bee music to use it outside of this script
     public static AudioSource defaultBeeMusic;
 
+    // Create a static reference of the factory level music to use it outside of this script
+    public static AudioSource factoryLevelMusic;
+
     int sfxIndex; // This will randomize a certain SFX to play
     int musicIndex; // This will randomize a certain music to play
 
@@ -93,9 +96,9 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set the SFX and music indexes to randomize between its first index and 1 more than the length of the array
-        sfxIndex = Random.Range(0, sfxSource.Length + 1);
-        musicIndex = Random.Range(0, musicSource.Length + 2);
+        // Set the SFX and music indexes to randomize between its first index and its audio source array length
+        sfxIndex = Random.Range(0, sfxSource.Length);
+        musicIndex = Random.Range(0, musicSource.Length + 1);
 
         // Increase the timer value over time
         timerValue += Time.deltaTime;
