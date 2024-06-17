@@ -1,12 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuInputs : MonoBehaviour
 {
+    public RawImage pauseTexture;
+    public Text pauseMenuText;
+    public Font inGameFont;
+
+    public RawImage pauseAndResumeInstruction;
+    public Text resumeText;
+    public Text quitToMainMenuText;
+
+    public static bool gamePaused;
+
     // Start is called before the first frame update
     void Start()
     {
+        gamePaused = false;
+        PauseGame();
+
+        pauseTexture.gameObject.SetActive(false);
+        pauseAndResumeInstruction.gameObject.SetActive(false);
+
         // If the default bee music is found and the default bee music is still playing
         if (OptionsMenu.defaultBeeMusic != null && OptionsMenu.defaultBeeMusic.isPlaying)
         {
@@ -46,11 +64,63 @@ public class MenuInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pauseMenuText.text = "PAUSED!";
+        pauseMenuText.font = inGameFont;
+        pauseMenuText.fontSize = 10;
+        pauseMenuText.alignment = TextAnchor.MiddleCenter;
+
+        resumeText.text = "Press START to resume game!";
+        resumeText.font = inGameFont;
+        resumeText.fontSize = 7;
+        resumeText.alignment = TextAnchor.MiddleCenter;
+
+        quitToMainMenuText.text = "Press SELECT to quit to main menu!";
+        quitToMainMenuText.font = inGameFont;
+        quitToMainMenuText.fontSize = 7;
+        quitToMainMenuText.alignment = TextAnchor.MiddleCenter;
+
         // Check if the Escape key is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Quit the application
             Application.Quit(); //End game on key press for testing.
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) && !pauseTexture.gameObject.activeInHierarchy)
+        {
+            pauseTexture.gameObject.SetActive(true);
+            pauseAndResumeInstruction.gameObject.SetActive(true);
+
+            gamePaused = true;
+            PauseGame();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Return) && pauseTexture.gameObject.activeInHierarchy)
+        {
+            pauseTexture.gameObject.SetActive(false);
+            pauseAndResumeInstruction.gameObject.SetActive(false);
+
+            gamePaused = false;
+            PauseGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && pauseTexture.gameObject.activeInHierarchy)
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
+
+    void PauseGame()
+    {
+        if (gamePaused)
+        {
+            Time.timeScale = 0;
+        }
+
+        else if (!gamePaused)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
 }

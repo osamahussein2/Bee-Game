@@ -23,7 +23,7 @@ public class placementHandler : MonoBehaviour
         Vector3 worldPosition = transform.position;
         worldPosition.x += .5f;
         worldPosition.y -= 1f;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.X) && !MenuInputs.gamePaused)
         {
             // Instantiate the prefab at the spawner's position and rotation
             Instantiate(jellyMaker, worldPosition, Quaternion.identity);

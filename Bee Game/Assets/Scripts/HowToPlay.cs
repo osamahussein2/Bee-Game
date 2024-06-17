@@ -46,7 +46,7 @@ public class HowToPlay : MonoBehaviour
         dPadHelpText.color = Color.white; // Make the text white
         dPadHelpText.alignment = TextAnchor.MiddleLeft;// Align it at the middle left of the text box
 
-        startButtonHelpText.text = "Play the game (main menu only)"; // Tell the player what the START button does
+        startButtonHelpText.text = "Pause the game"; // Tell the player what the START button does
         startButtonHelpText.font = howToPlayFont; // Set this text to use the Nintendo font in the inspector
         startButtonHelpText.fontSize = 6; // Make the text smaller to fit the NES resolution
         startButtonHelpText.color = Color.white; // Make the text white
